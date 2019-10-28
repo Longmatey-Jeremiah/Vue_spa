@@ -2,8 +2,9 @@
     <div>
         <base-navbar></base-navbar>
         <div class="about container">
+            <p class="mt-3 ml-5">This vue-anchor Blog</p>
 
-        <h1 style="text-align:center" class="mt-5">About Vue-Anchor</h1>
+        <h1 style="text-align:center">Recent Posts</h1>
 
         <section v-if="error">
             !Oops something went wrong,please try again :)
@@ -13,8 +14,11 @@
 
             <div v-if="loading">Loading</div>
 
-            <div v-else class="card">
+            <div v-else class="">
+                  <router-link class="btn btn-outline-secondary" to="/posts/create" style="float:right;margin:10px 10%;">Add new Post</router-link>      
                 <div v-for="post in posts" v-bind:key="post.id">
+                
+                    <div class="card">
                 
                         <div>
                 
@@ -23,15 +27,11 @@
                 
                         </div>
                 
+                    </div>
+                
                 </div>
-            <!--{{info}}-->
+           
             </div>
-            <!--<div v-else v-for="{currency,Index} in info" v-bind:key="Index" class="currency">
-                {{ currency.description }}:
-                <span class="lighten">
-                    <span v-html="currency.symbol"></span>{{ currency.rate_float | currencydecimal }}
-                </span>
-            </div>-->       
          
          </section>
         
@@ -82,13 +82,12 @@ import axios from 'axios'
 .card{
     width: 80%;
     margin:5% 0 0 10%;
-    background-color: rgba(100,100, 100, 0.5);
+    background-color: rgba(100,100, 100, 0.3);
 }
 .card h5{
     text-align:center;
 }
 .card-body{
-    
-    overflow:wrap;
+       overflow:wrap;
 }
 </style>

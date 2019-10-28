@@ -1,7 +1,13 @@
 <template>
     <div>
-        <basenavbar></basenavbar>
-        this is welcome to vue-anchor with {{this.name}}
+        <base-navbar></base-navbar>
+        <router-view></router-view>
+
+        <div class="container-fluid">
+            <div class="g-text">
+             Welcome to vue-anchor
+            </div>
+        </div>
     </div>
 </template>
 
@@ -14,13 +20,22 @@ import basenavbar from '../components/BaseNavBar'
             }
         },
         components:{
-            basenavbar,
+            "base-navbar":basenavbar,
         }
     }
 </script>
 
 <style scoped>
 .active {
-    color: red
+    color: red;
+}
+.g-text {
+    margin:150px 0 0 400px;
+    /*color:white;*/
+    font-size: 45px;
+}
+.g-text:hover{
+    font-size: 46px;
+    color:rgba(244, 64, 250, 0.644);
 }
 </style>
