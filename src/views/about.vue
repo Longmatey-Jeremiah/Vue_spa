@@ -3,18 +3,18 @@
         <base-navbar></base-navbar>
         <div class="about container">
 
-        <h1 style="text-align:center" class="mt-5">About Vue-Anchor</h1>
+        <h1 style="text-align:center;color: rgba(100,100, 100, 0.9);" class="mt-5">About Vue-Anchor</h1>
 
-        <section v-if="error">
+        <section v-if="error" class="text-center">
             !Oops something went wrong,please try again :)
         </section>
 
         <section v-else>
 
-            <div v-if="loading">Loading</div>
+            <div v-if="loading" class="text-center animate">Loading</div>
 
             <div v-else class="card">
-                <div v-for="post in posts" v-bind:key="post.id">
+                <div v-for="post in posts" class="mt-5" v-bind:key="post.id">
                 
                         <div>
                 
@@ -24,14 +24,8 @@
                         </div>
                 
                 </div>
-            <!--{{info}}-->
-            </div>
-            <!--<div v-else v-for="{currency,Index} in info" v-bind:key="Index" class="currency">
-                {{ currency.description }}:
-                <span class="lighten">
-                    <span v-html="currency.symbol"></span>{{ currency.rate_float | currencydecimal }}
-                </span>
-            </div>-->       
+        
+            </div>   
          
          </section>
         
@@ -63,10 +57,8 @@ import axios from 'axios'
                 .get('http://jsonplaceholder.typicode.com/posts')
                 .then(response=>{
                     this.posts=response.data;
-                    this.info=response.data;
                 })
                 .catch(error=> {
-                    //console.log(error);
                     this.error= true;
                     this.errortype=error;
                 })
@@ -81,14 +73,30 @@ import axios from 'axios'
 }*/
 .card{
     width: 80%;
+    color:white;
     margin:5% 0 0 10%;
-    background-color: rgba(100,100, 100, 0.5);
+    background-color: rgba(100,100, 100, 0.7);
 }
 .card h5{
     text-align:center;
+    color:rgba(225,225, 225, 0.8);
 }
 .card-body{
-    
     overflow:wrap;
 }
+.animate{
+    animation-name: animate;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    outline:none; 
+}
+
+@keyframes animate{
+  0%   {color:white;font-weight:normal; }
+  25%  {color:powderblue;font-weight:bold;}
+  50%  {color:yellow;font-weight:bolder;}
+  75%  {color:springgreen;font-weight:bold;}
+  100% {color:white;font-weight:normal;}
+  }
 </style>
