@@ -1,8 +1,8 @@
 <template>
     <div>
         <base-navbar></base-navbar>
-        <div class="about container">
-            <p class="mt-3 " style="text-align:center">This vue-anchor Blog</p>
+        <div class="blog container">
+            <p class="mt-3 " style="text-align:center">This is vue-anchor Blog</p>
 
         <h1 style="text-align:center">Recent Posts</h1>
 
@@ -75,13 +75,14 @@ import axios from 'axios'
 </script>
 
 <style scoped>
-.about {
-    color:white
+.blog {
+    color: rgba(100,100, 100, 0.7);
 }
 .card{
     width: 80%;
     margin:5% 0 0 10%;
     background-color: rgba(100,100, 100, 0.3);
+    color:white;
 }
 .card h5{
     text-decoration: none;
